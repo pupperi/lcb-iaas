@@ -9,7 +9,7 @@ resource "aws_vpc_dhcp_options_association" "dns_resolver" {
     vpc_id = "${aws_vpc.terraformmain.id}"
     dhcp_options_id = "${aws_vpc_dhcp_options.shaandhcp.id}"
 }
-/* DNS PART ZONE AND RECORDS */
+/* DNS PART ZONE AND RECORDS in Route 53*/
 resource "aws_route53_zone" "main" {
     name = "${var.DnsZoneName}"
     vpc_id = "${aws_vpc.terraformmain.id}"
@@ -21,4 +21,4 @@ resource "aws_route53_record" "database" {
     type = "A"
     ttl = "300"
     records = ["${aws_instance.database.private_ip}"]
-}
+} 
