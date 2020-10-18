@@ -1,39 +1,43 @@
-variable "region" {
-    default = "eu-west-2"
-}
-variable "AmiLinux" {
-type = "map"
-    default = {
-    eu-west-2 = "ami-a36f8dc4"
-    eu-west-1 = "ami-ca0135b3"
-    us-east-1 = "ami-14c5486b"
-    }
-}
 variable "aws_access_key" {
-    default = ""
+    default = "xxxxxxxxxxxxxxxxxxxxxxx"
     description = "user aws access key"
 }
 variable "aws_secret_key" {
-    default = ""
+    default = "yyyyyyyyyyyyyyyyyyyyyyyyyy"
     description = " user aws secret key"
 }
-variable "vpc-fullcidr" {
-    default = "172.16.0.0/16"
+variable "aws_region" {
+    default = "us-west-2"
+    description = "Region name"
+}
+variable "web_ami" {
+    default = "ami-01fee56b22f308154"
+    description = "Which amazon machine image"
+}
+variable "lcb_key" {
+    default = "lcb-key"
+}
+variable "vpc_fullcidr" {
+    default = "10.0.0.0/16"
     description = "the vpc cdir"
 }
-variable "Subnet-Public-AzA-CIDR" {
-    default = "172.16.0.0/24"
-    description = "the cidr of the subnet"
+variable "rds_mysql_engine" {
+    default = "mysql"
+    description = "DB Type"
 }
-variable "Subnet-Private-AzA-CIDR" {
-    default = "172.16.3.0/24"
-    description = "the cidr of the subnet"
+variable "rds_mysql_version" {
+    default = "5.7"
+    description = "DB Version"
 }
-variable "key_name" {
-    default = "MyAWSKey"
-    description = "the ssh key to use in the EC2 machines"
+variable "rds_mysql_instance_class" {
+    default = "db.t2.large"
+    description = "DB Machine class"
 }
-variable "DnsZoneName" {
-     default = "ShaanAWSDNS.internal"
-     description = "the internal dns name"
+variable "rds_mysql_username" {
+    default = "root"
+    description = "MySQL DB username"
+}
+variable "rds_mysql_password" {
+    default = "xxxxxxxxxxxxxxxxxxx"
+    description = "MySQL DB password"
 }
